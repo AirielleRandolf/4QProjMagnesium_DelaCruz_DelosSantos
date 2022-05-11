@@ -30,7 +30,7 @@
             <div id="booking-form">
                 <form onsubmit="return book();" onreset="removeEvents()">
                     <label for="fullname">Full Name:</label> <br>
-                    <input type="text" name="fullname" id="fullname"> <br><br>
+                    <input type="text" name="fullname" id="fullname" required> <br><br>
         
                     <label for="batches">Batch:</label> <br>
                     <select name="batches" id="batches">
@@ -43,10 +43,10 @@
                     </select> <br><br>
         
                     <label for="section">Section/Block:</label> <br>
-                    <input type="text" name="section" id="section"> <br><br>
+                    <input type="text" name="section" id="section" required> <br><br>
         
                     <label for="contact-num">Contact Number [xxxx-xxx-xxxx]:</label> <br>
-                    <input type="text" name="contact-num" id="contact-num" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}"> <br><br>
+                    <input type="text" name="contact-num" id="contact-num" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" required> <br><br>
         
                     <label for="acts-selection">Choose an Activity:</label> <br>
                     <select id="acts-selection" onchange="changeOption()">
