@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Airielle Randolf D. Dela Cruz, Art DR. Delos Santos">
+        <meta name="keywords" content="Dashboard, HTML, CSS, JS, Eventure, Events, PSHS">
+        <meta name="description" content="Your Eventure Dashboard.">
+        <meta name="revised" content="05-11-2022">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Eventure - Dashboard</title>
+
+        <link rel="stylesheet" href="../css/fonts.css">
+        <link rel="stylesheet" href="../css/dashboard.css">
+    </head>
+
+    <body>
+        <div id="header">
+            <h2 id="username">Username</h2>
+            <h1 id="title">Eventure</h1>
+            <span>
+                <!-- currently not usable -->
+                <a href="#" id="sign-out">Sign Out</a>
+                <a href="../index.html" id="home-link">Home</a>
+            </span>
+        </div>
+
+        <main id="main-dashboard">
+            <a id="plus-sign" href="book_event.html"></a>
+
+            <h1>Activities Registered In:</h1>
+
+            <div id="remove-regevents"><a href="#" onclick="removeEvents()">Remove all Registered events</a></div>
+            
+            <div id="chosen-events">
+                <div class="activity">
+                    <h2>Activity Name</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>
+                </div>
+
+                <div id="concert"  class="activity">
+                    <h2>Jamming Sessions: A Concert Special</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+
+                <div id="movies"  class="activity">
+                    <h2>Movie Marathon: Special Screening Edition</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+
+                <div id="gamer-hangout"  class="activity">
+                    <h2>Gamers' Hangout</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+
+                
+                <div id="basketball"  class="activity">
+                    <h2>Basketball Match</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+                
+                <div id="volleyball"  class="activity">
+                    <h2>Volleyball Match</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+
+                <div id="frisbee" class="activity">
+                    <h2>Frisbee Match</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+            </div> 
+            
+            <h1>Other Available Activities:</h1>
+            <form id="hide-box">
+                <!-- currently not usable -->
+                <input type="checkbox" name="hide-box-check" id="hide-box-check">
+                <label for="hide-box-check">Hide</label> <br>
+            </form>
+
+
+            <div id="event-list">
+                <div id="concert2"  class="activity">
+                    <h2>Jamming Sessions: A Concert Special</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+
+                <div id="movies2"  class="activity">
+                    <h2>Movie Marathon: Special Screening Edition</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+
+                <div id="gamer-hangout2"  class="activity">
+                    <h2>Gamers' Hangout</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+                
+                <div id="basketball2"  class="activity">
+                    <h2>Basketball Match</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+                
+                <div id="volleyball2"  class="activity">
+                    <h2>Volleyball Match</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+
+                <div id="frisbee2" class="activity">
+                    <h2>Frisbee Match</h2>
+                    <p>Description</p>
+                    <p>Venue</p>
+                    <p>Date & Time</p>
+                    <p># Individuals Registered / Maximum Capacity</p>            
+                </div>
+            </div>
+        </main>
+
+        <script>
+            // (all) scripts by randolf
+            // currently all incomplete
+            // -> scripts dont work with firefox
+
+            var username = localStorage.getItem("username");
+            var regEvents = localStorage.getItem("reg-events");
+            
+            var main = document.getElementById("main-dashboard");
+            var usernameHeader = document.getElementById("username");
+            var eventList = document.getElementById("event-list");
+            var gamerHangout = document.getElementById("gamer-hangout");
+            var movieMarathon = document.getElementById("movies");
+            var concert = document.getElementById("concert");
+            var basketball = document.getElementById("basketball");
+            var volleyball = document.getElementById("volleyball");
+            var frisbee = document.getElementById("frisbee");
+
+            var gamerHangoutAlt = document.getElementById("gamer-hangout2");
+            var movieMarathonAlt = document.getElementById("movies2");
+            var concertAlt = document.getElementById("concert2");
+            var basketballAlt = document.getElementById("basketball2");
+            var volleyballAlt = document.getElementById("volleyball2");
+            var frisbeeAlt = document.getElementById("frisbee2");
+
+            if(username == null || username == "") {
+                usernameHeader.innerHTML = "Not Registered";
+            }
+            else { 
+                usernameHeader.innerHTML = username;
+            }
+
+            var eventsDOM = 
+            [
+                gamerHangout,
+                movieMarathon,
+                concert,
+                basketball,
+                volleyball,
+                frisbee
+            ];
+
+            var eventsDOMAlt = 
+            [
+                gamerHangoutAlt,
+                movieMarathonAlt,
+                concertAlt,
+                basketballAlt,
+                volleyballAlt,
+                frisbeeAlt
+            ];
+
+            var eventsTally =
+            [
+                "Gaming",
+                "Movies", 
+                "Jamming Session", 
+                "Basketball", 
+                "Volleyball",
+                "Frisbee"          
+
+            ];
+
+            for(let i = 0; i < eventsDOM.length; i++) {
+                if(regEvents.includes(eventsTally[i])) {
+                    eventsDOM[i].style.display = "block";
+                    eventsDOMAlt[i].style.display = "none";
+                } 
+                    
+                else {
+                    eventsDOM[i].style.display = "none";
+                    eventsDOMAlt[i].style.display = "block";
+                }
+            }
+
+            function removeEvents() {
+                localStorage.setItem("reg-events", "");
+                window.open("dashboard.html", "_self");
+            }
+        </script>
+    </body>
+</html>

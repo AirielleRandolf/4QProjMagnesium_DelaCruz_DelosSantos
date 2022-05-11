@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Airielle Randolf D. Dela Cruz, Art DR. Delos Santos">
+        <meta name="keywords" content="Dashboard, HTML, CSS, JS, Eventure, Events, PSHS">
+        <meta name="description" content="Your Eventure Dashboard.">
+        <meta name="revised" content="05-11-2022">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Eventure - Make an Account</title>
+        
+        <link rel="stylesheet" href="../css/fonts.css">
+        <link rel="stylesheet" href="../css/register.css">
+    </head>
+
+    <body>
+        <div id="signup-container">
+            <h1>Create an Account</h1>
+
+            <form onsubmit="return register();">
+                <label for="fullname">Full Name:</label> <br>
+                <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+                <br><br>
+
+                <label for="pshs-email">PSHS Email Address:</label> <br>
+                <input type="email" name="pshs-email" id="pshs-email" placeholder="PSHS Email" required>
+                <br><br>
+
+                <label for="batches">Batch:</label> <br>
+                <select name="batches" id="batches">
+                    <option value="Batch 2023">Batch 2023</option>
+                    <option value="Batch 2024">Batch 2024</option>
+                    <option value="Batch 2025" selected="selected">Batch 2025</option>
+                    <option value="Batch 2026">Batch 2026</option>
+                    <option value="Batch 2027">Batch 2027</option>
+                    <option value="Batch 2028">Batch 2028</option>
+                </select>
+                <br><br>
+
+                <label for="username">Username:</label> <br>
+                <input type="text" name="username" id="username" placeholder="Username (Optional)">
+                <br><br>
+
+                <label for="password">Password:</label> <br>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <br><br>
+
+                <input type="reset" value="Reset">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <br>
+        
+        <a href="dashboard.html">Go to Dashboard</a>
+        <br><br>
+        <a href="../index.html">Go back to Homepage</a>
+
+        <script>
+            // incomplete
+            var usernameInput = document.getElementById("username");
+            var fullnameInput = document.getElementById("fullname");
+
+            function register() {
+                if(usernameInput.value != "") {
+                    localStorage.setItem("username", usernameInput.value);
+                } else {
+                    localStorage.setItem("username", fullnameInput.value);
+                }
+                window.open('dashboard.html');
+                return false;
+            }
+        </script>
+    </body>
+</html>

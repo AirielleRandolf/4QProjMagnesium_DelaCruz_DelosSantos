@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Airielle Randolf D. Dela Cruz, Art DR. Delos Santos">
+        <meta name="keywords" content="Dashboard, HTML, CSS, JS, Eventure, Events, PSHS">
+        <meta name="description" content="Your Eventure Dashboard.">
+        <meta name="revised" content="05-11-2022">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Eventure - Event Registration</title>
+
+        <link rel="stylesheet" href="../css/fonts.css">
+        <link rel="stylesheet" href="../css/book_event.css">
+    </head>
+
+    <body>
+        <a id="home" href="../index.html"></a>
+        <a id="dashboard" href="dashboard.html"></a>
+
+        <hr>
+
+        <h1>Register for an Activity</h1>
+
+        <hr>
+
+        <div id="container">
+            <div id="booking-form">
+                <form onsubmit="return book();" onreset="removeEvents()">
+                    <label for="fullname">Full Name:</label> <br>
+                    <input type="text" name="fullname" id="fullname"> <br><br>
+        
+                    <label for="batches">Batch:</label> <br>
+                    <select name="batches" id="batches">
+                        <option value="Batch 2023">Batch 2023</option>
+                        <option value="Batch 2024">Batch 2024</option>
+                        <option value="Batch 2025" selected="selected">Batch 2025</option>
+                        <option value="Batch 2026">Batch 2026</option>
+                        <option value="Batch 2027">Batch 2027</option>
+                        <option value="Batch 2028">Batch 2028</option>
+                    </select> <br><br>
+        
+                    <label for="section">Section/Block:</label> <br>
+                    <input type="text" name="section" id="section"> <br><br>
+        
+                    <label for="contact-num">Contact Number [xxxx-xxx-xxxx]:</label> <br>
+                    <input type="text" name="contact-num" id="contact-num" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}"> <br><br>
+        
+                    <label for="acts-selection">Choose an Activity:</label> <br>
+                    <select id="acts-selection" onchange="changeOption()">
+                        <option value="gaming">Gaming</option>
+                        <option value="concert">Jamming Sessions</option>
+                        <option value="movies">Movies</option>
+                        <option value="basketball">Basketball</option>
+                        <option value="basketball">Volleyball</option>
+                        <option value="basketball">Frisbee</option>
+                    </select><br><br>
+        
+                    <input type="checkbox" name="with-items-check" id="with-items-check">
+                    <label for="with-items-check">Will you bring items to the activity?</label> <br><br>
+        
+                    <label for="with-items">If so, specify them:</label> <br>
+                    <textarea name="with-items" id="with-items" cols="30" rows="10" style="resize: vertical;"></textarea> <br><br>
+        
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </form>
+            </div>
+            
+            <div id="image"></div>
+        </div>
+        
+        
+        <script>
+            var eventList = document.getElementById("acts-selection");
+            var eventChosen = eventList.options[eventList.selectedIndex].text;
+
+            function changeOption() {
+                eventChosen = eventList.options[eventList.selectedIndex].text;
+            }
+
+            function book() {
+                // not working yet
+                var registeredEvents = [];
+
+                console.log(eventChosen);
+
+                if(localStorage.getItem("reg-events") == "" || localStorage.getItem("reg-events") == null) {
+                    registeredEvents += eventChosen;                    
+                } else {
+                    registeredEvents = localStorage.getItem("reg-events");
+                    registeredEvents += eventChosen;
+                }
+
+                console.log(registeredEvents);
+                console.log(typeof(registeredEvents));
+
+                localStorage.setItem("reg-events", JSON.stringify(registeredEvents));
+
+                console.log(localStorage.getItem("reg-events"));
+
+                return false;
+            }
+        </script>
+    </body>
+</html>
